@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 
-public class OrderServiceMockitoTest {
+public class OrderServiceTest {
 
     @Test
     public void should_get_10_if_two_order_with_5() {
