@@ -5,6 +5,7 @@ API 测试
 
 #运行
 `mvn package` 会运行单元测试和接口测试
+
 `mvn package   -DskipUT -DskipIT`  跳过单元测试和接口测试
 
 
