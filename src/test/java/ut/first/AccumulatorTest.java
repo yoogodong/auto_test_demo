@@ -3,7 +3,7 @@ package ut.first;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class AccumulatorTest {
 
@@ -26,7 +26,9 @@ public class AccumulatorTest {
 
     @Test
     public void accumulate_should_return_0_when_input_0() throws NumberOutOfBoundException {
+
         int result = accumulator.accumulate(0);
+
         assertEquals(0,result);
     }
 

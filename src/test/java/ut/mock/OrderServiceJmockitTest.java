@@ -3,16 +3,13 @@ package ut.mock;
 import mockit.Expectations;
 import mockit.Injectable;
 import mockit.Tested;
-import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import java.util.Arrays;
 
-import static java.util.Arrays.asList;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-public class OrderServiceTest {
+public class OrderServiceJmockitTest {
 
     @Tested
     OrderService orderService;
