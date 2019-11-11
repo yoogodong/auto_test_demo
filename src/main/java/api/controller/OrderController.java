@@ -2,19 +2,19 @@ package api.controller;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping("/orders")
-
 public class OrderController {
 
+    @Autowired
+    InvoiceFeign invoiceFeign;
 
     @GetMapping("/{1}")
     public OrderOut getOrder(@PathVariable("1") Long id) {
@@ -34,6 +34,23 @@ public class OrderController {
         return Arrays.asList("对象不存在", "NullPointException");
     }
 
+
+    /**
+     * 代表订单保存时调用开发票的服务
+     */
+    @PostMapping("/save")
+    public Map save(@RequestParam("totalPrice") Double totalPrice) {
+        String id = invoiceFeign.createInvoice(totalPrice);
+        HashMap<String, Object> map = new HashMap<>();
+
+        if (id == null) {
+            map.put("status", "fail");
+        } else {
+            map.put("invoiceId", id);
+            map.put("status", "success");
+        }
+        return map;
+    }
 
     /*
      * 代表应答对象

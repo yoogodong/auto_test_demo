@@ -17,7 +17,7 @@ public class OrderControllerIT extends PreIT {
      * 演示 restAssured 核心API ：
      * 1. GWT 三段式API
      * 2. given()/when（） 是纯粹的语法糖
-     * 3. 三个核心类型 RequestSpecification /  Resoonse / VilidatableReseponse
+     * 3. 三个核心类型 RequestSpecification /  Response / ValidatableResponse
      * 4. JsonPath
      */
 
@@ -26,7 +26,7 @@ public class OrderControllerIT extends PreIT {
         given()
                 .contentType(ContentType.JSON)
                 .when()
-                .get("1")
+                .get("/1")
                 .then()
                 .contentType(ContentType.JSON)
                 .statusCode(200)
@@ -43,11 +43,12 @@ public class OrderControllerIT extends PreIT {
     @Test
     public void should_404_when_id_5_() {
         when()
-                .get("5")
+                .get("/5")
                 .then()
                 .statusCode(404)
                 .contentType(ContentType.JSON)
-                .body("[0]", equalTo("对象不存在"));
+                .body("[0]", equalTo("对象不存在"))
+                .body("[1]", equalTo("NullPointException"));
     }
 
     /**
