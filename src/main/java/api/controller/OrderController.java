@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -28,9 +29,9 @@ public class OrderController {
 
 
     @ExceptionHandler({NullPointerException.class})
-    public String handle(HttpServletResponse response) {
+    public List<String> handle(HttpServletResponse response) {
         response.setStatus(404);
-        return "对象不存在";
+        return Arrays.asList("对象不存在", "NullPointException");
     }
 
 
