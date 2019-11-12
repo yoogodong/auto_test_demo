@@ -1,6 +1,6 @@
-#目的
-单元测试 get started 
-API 测试
+# 内容：
+- 单元测试， 采用了 mockito 作为mock 工具
+- API 测试：演示了API 测试的三种方式: RestAssured, MockMvc 和 RestAssuredMvc
 
 #运行
 `mvn test` 运行单元测试
@@ -12,7 +12,3 @@ API 测试
 
 集成测试也可以在 IDE 中选择指定的运行，这也是 *IT 都继承自 PreIT 的原因。 换句话说， 仅仅通过 maven 命令运行没有必要继承这个类
 
-
-
-#变更
-- 因为 junit4  不能很方便的支持集成测试 所以选择 testNG
