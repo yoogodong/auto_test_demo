@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class OrderControllerMockMvcTest {
+public class OrderControllerMockMvcIT {
     @Autowired
     MockMvc mockMvc;
 

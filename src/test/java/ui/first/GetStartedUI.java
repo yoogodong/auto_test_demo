@@ -17,7 +17,6 @@ public class GetStartedUI {
 
     private static final Logger log = Logger.getLogger(GetStartedUI.class.getName());
     private static WebDriver driver;
-    private static String originWindow;
 
     @BeforeClass
     public static void setUp() throws Exception {
@@ -28,10 +27,7 @@ public class GetStartedUI {
     @AfterClass
     public static void tearDown() throws Exception {
         System.out.println("关闭浏览器");
-        driver.close();
-        driver.switchTo().window(originWindow).close();
-        log.info(driver.getTitle());
-        log.info(driver.getCurrentUrl());
+//        driver.quit();
     }
 
     @Test
@@ -41,8 +37,8 @@ public class GetStartedUI {
         driver.findElement(By.id("su")).click();
 
         while (true) {
-            log.info("找达内");
-            List<WebElement> link = driver.findElements(By.partialLinkText("达内"));
+            log.info("找关键字{}");
+            List<WebElement> link = driver.findElements(By.partialLinkText("豆瓣"));
             if (link.size() == 0) {
                 log.info("找下一页");
                 WebElement nextPage = driver.findElement(By.partialLinkText("下一页"));
@@ -50,8 +46,7 @@ public class GetStartedUI {
                 nextPage.click();
                 continue;
             }
-            log.info("达内");
-            originWindow = driver.getWindowHandle();
+            log.info("豆瓣");
             link.get(0).click();
             break;
         }
