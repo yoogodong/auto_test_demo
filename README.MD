@@ -1,6 +1,6 @@
 # 内容：
 - 单元测试， 采用了 mockito 作为mock 工具
-- API 测试：演示了API 测试的三种方式: RestAssured, MockMvc 和 RestAssuredMvc
+- API 测试：使用spring boot 构建了两个服务演示了API 测试的三种方式: RestAssured, MockMvc 和 RestAssuredMvc
 
 #运行
 `mvn test` 运行单元测试
