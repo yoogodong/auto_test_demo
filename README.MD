@@ -12,11 +12,6 @@
 因为单元测试和接口测试分别采用 Test 和 IT 作为后缀，通过指定后缀来运行某种测试：
 ` mvn test -Dtest=*Test,*IT`  运行单元测试和接口测试
 
-# change log
-- 删除了纯粹使用 RestAssured 的示例，仅仅保留 RestAssuredMockMvc 的示例；
-- 删除 testng 以及 failsafe plugin 
-
-
 
 # 测试自动化的FAQ：
 > 单元测试的价值
