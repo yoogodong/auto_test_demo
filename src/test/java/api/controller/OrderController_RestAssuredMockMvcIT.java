@@ -45,7 +45,6 @@ public class OrderController_RestAssuredMockMvcIT {
      * 3. 三个核心类型 RequestSpecification /  Response / ValidatableResponse
      * 4. JsonPath
      */
-
     @Test
     public void get_order_when_id_1() {
         given()
@@ -109,13 +108,11 @@ public class OrderController_RestAssuredMockMvcIT {
     }
 
 
-    /*
-     *演示两个方面：
+    /**
+     * 演示两个方面：
      * 1. ValidatableResponse 提供了一个方法获得 Response, 这意味着在验证阶段也可以再提取 Response
-     *
      * 2.  from() 方法演示了如何独立使用 JsonPath
-     *
-     * */
+     */
     @Test
     public void show_extract() {
         String body = when()
