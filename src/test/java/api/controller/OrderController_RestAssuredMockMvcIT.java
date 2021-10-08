@@ -1,14 +1,12 @@
 package api.controller;
 
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static io.restassured.http.ContentType.JSON;
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
@@ -17,14 +15,13 @@ import static io.restassured.path.json.JsonPath.from;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * 演示使用 RestAssured 包装 MockMvc 的API ：
  * 优势：
  * 1. 同时兼顾了单独使用 RestAssured / MockMvc 各自的优势。
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class OrderController_RestAssuredMockMvcIT {
 
@@ -35,7 +32,7 @@ public class OrderController_RestAssuredMockMvcIT {
     @Autowired
     OrderController orderController;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         RestAssuredMockMvc.standaloneSetup(orderController);
     }

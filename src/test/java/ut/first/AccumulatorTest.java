@@ -1,34 +1,38 @@
 package ut.first;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class AccumulatorTest {
 
     private Accumulator accumulator;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         accumulator = new Accumulator();
     }
 
-    @Test(expected = NumberOutOfBoundException.class)
+    @Test
     public void accumulate_should_throw_when_input_is_1001() throws NumberOutOfBoundException {
-        accumulator.accumulate(1001);
+        Assertions.assertThrows(NumberOutOfBoundException.class,()->{
+            accumulator.accumulate(1001);
+        });
     }
 
-    @Test(expected = NumberOutOfBoundException.class)
+    @Test
     public void accumulate_should_throw_when_input_is_negative1() throws NumberOutOfBoundException {
-        accumulator.accumulate(-1);
+        Assertions.assertThrows(NumberOutOfBoundException.class,()->{
+            accumulator.accumulate(-1);
+        });
     }
 
     @Test
     public void accumulate_should_return_0_when_input_0() throws NumberOutOfBoundException {
-
         int result = accumulator.accumulate(0);
-
         assertEquals(0,result);
     }
 

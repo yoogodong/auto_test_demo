@@ -1,8 +1,8 @@
 package api.controller;
 
 import io.restassured.RestAssured;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
@@ -11,7 +11,7 @@ import static io.restassured.path.json.JsonPath.from;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * 使用 RestAssured API 来做API 测试
@@ -23,7 +23,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class OrderController_RestAssuredIT {
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         RestAssured.baseURI = "http://localhost:8080";
     }
