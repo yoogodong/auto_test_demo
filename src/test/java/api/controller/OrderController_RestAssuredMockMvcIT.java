@@ -14,16 +14,19 @@ import static io.restassured.http.ContentType.JSON;
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.when;
 import static io.restassured.path.json.JsonPath.from;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertEquals;
 
 /**
- * 演示使用 RestAssured 包装 MockMvc
- * RestAssured 提供的API 更简洁和灵活
+ * 演示使用 RestAssured 包装 MockMvc 的API ：
+ * 优势：
+ * 1. 同时兼顾了单独使用 RestAssured / MockMvc 各自的优势。
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class OrderControllerRestAssuredMockMvcIT {
+public class OrderController_RestAssuredMockMvcIT {
 
 
     @MockBean
