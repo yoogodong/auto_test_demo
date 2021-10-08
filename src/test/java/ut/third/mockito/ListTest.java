@@ -1,4 +1,4 @@
-package ut.mock;
+package ut.third.mockito;
 
 import org.junit.jupiter.api.Test;
 

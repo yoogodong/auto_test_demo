@@ -1,4 +1,4 @@
-package ut.first;
+package ut.second;
 
 public class Accumulator {
 
