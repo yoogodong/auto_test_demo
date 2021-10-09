@@ -9,13 +9,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderService {
     private OrderRepository repository;
-    private InventoryAdapter inventoryService;
+    private InventoryAdapter inventoryAdapter;
 
     public Order getOrder(Long orderId){
         return repository.findById(orderId).orElseThrow(()->new RuntimeException());
     }
 
     public void create(Order order){
+        inventoryAdapter.deduct("234234",1);
         repository.save(order);
     }
 
