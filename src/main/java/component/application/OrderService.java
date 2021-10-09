@@ -3,8 +3,10 @@ package component.application;
 import component.domain.Order;
 import component.domain.OrderRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @AllArgsConstructor
 @Service
 public class OrderService {
@@ -17,7 +19,8 @@ public class OrderService {
 
     public void create(Order order){
         inventoryAdapter.deduct("234234",1);
-        repository.save(order);
+        Order saved = repository.save(order);
+        log.info("保存订单{}",saved);
     }
 
 
