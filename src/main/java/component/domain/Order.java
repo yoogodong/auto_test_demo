@@ -13,7 +13,6 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.time.LocalDateTime;
 @ToString
 @Getter
 @Builder
@@ -26,7 +25,7 @@ public class Order {
     @Id @GeneratedValue
     private Long id;
     @CreatedDate
-    private LocalDateTime createdTime;
+    private long createdTime;
 
     private String shipmentAddress;
     private String receiverName;

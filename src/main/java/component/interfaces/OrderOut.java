@@ -5,18 +5,19 @@ import component.domain.Order;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 public class OrderOut {
     private Long id;
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime createdTime;
+    private Date createdTime;
     private String shipmentAddress;
     private String receiverName;
     private String receiverPhone;
 
     public OrderOut(Order order) {
         BeanUtils.copyProperties(order,this);
+        createdTime=new Date(order.getCreatedTime());
     }
 }
