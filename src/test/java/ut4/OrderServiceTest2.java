@@ -2,26 +2,32 @@ package ut4;
 
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * 演示 mock 对象在单元测试中的应用
- * 注意这里的三段式结构
+ * 演示 mock 的标注
  */
-public class OrderServiceTest1 {
+@ExtendWith(MockitoExtension.class)
+public class OrderServiceTest2 {
+
+    @Mock
+    OrderDao orderDao;
+
+    @InjectMocks
+    OrderService orderService;
 
     @Test
     public void testTotalPrice() {
-        OrderService orderService = new OrderService();
-        OrderDao orderDao = mock(OrderDao.class);
-        orderService.setOrderDao(orderDao);
         when(orderDao.getOrdersOfCustomer(anyLong()))
                 .thenReturn(Arrays.asList(new Order(5),new Order(5)));
 
