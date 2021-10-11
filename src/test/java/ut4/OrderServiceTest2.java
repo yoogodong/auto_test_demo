@@ -15,7 +15,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * 演示 Mockito 常用的标注
+ * 演示使用标注来简化 mock api
  */
 @ExtendWith(MockitoExtension.class)
 public class OrderServiceTest2 {

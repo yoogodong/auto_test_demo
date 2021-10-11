@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
+ * 通过如何通过 Unit Test 来测试 SpringBuilder 的部分API，以明白UT的基本用法
  * 1，测试类名 = 被测类 + Test
  * 2，测试方法命名要表明测试目的， 可以有任意个测试方法，但要围绕一个被测类
  * 3，每个测试都至少包含一个 given-when-then 结构

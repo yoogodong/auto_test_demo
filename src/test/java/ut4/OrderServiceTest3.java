@@ -18,7 +18,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * 演示 spy
+ * 演示使用 spy 的常用场景
  */
 @ExtendWith(MockitoExtension.class)
 public class OrderServiceTest3 {
