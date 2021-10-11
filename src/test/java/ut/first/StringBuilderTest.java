@@ -1,4 +1,4 @@
-package ut.basic;
+package ut.first;
 
 
 import org.junit.jupiter.api.Test;
