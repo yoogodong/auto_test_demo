@@ -15,7 +15,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * 演示 mock 的标注
+ * 演示 Mockito 常用的标注
  */
 @ExtendWith(MockitoExtension.class)
 public class OrderServiceTest2 {
@@ -23,7 +23,7 @@ public class OrderServiceTest2 {
     @Mock
     OrderDao orderDao;
 
-    @InjectMocks
+    @InjectMocks //会创建实例，并注入 mock 对象，依赖于set方法
     OrderService orderService;
 
     @Test
