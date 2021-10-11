@@ -13,8 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * 5，测试框架junit,会调用所有的 @Test 标注的方法， 不同的测试方法没有确定的执行顺序
  * 6，常用的标注，有 @Test、@BeforeEach、 @AfterEach @DisplayName
  * 7, 常用的断言方法，还有 assertTrue、assertFalse、assertThat
- * 8, 运行测试，可以在 IDE 中，也可以通过 maven 命令（mvn test）
- * 9, 这里的必要依赖是 junit5, 这里是通过引用 spring-boot-starter-test 来包含这个依赖的
+ * 8, 需要多个断言的时候，考虑是否可以使用 assertThat, assertThat 可以简化断言的表达 @Todo
+ * 9，运行测试，可以在 IDE 中，也可以通过 maven 命令（mvn test）
+ * 10, 这里的必要依赖是 junit5, 这里是通过引用 spring-boot-starter-test 来包含这个依赖的
  */
 public class StringBuilderTest {
 

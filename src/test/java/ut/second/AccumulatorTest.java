@@ -10,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * 1，测试类和被测类共享包名
  * 2，一个被测方法有多个测试用例，这里将每个用例都对应了一个测试方法，这种方式更清晰，所以推荐使用
- * 3，使用 assertThrows 来断言方法应该抛出异常
+ * 3，测试方法不该捕捉任何异常，所以通常声明 throws Exception.
+ * 4，使用 assertThrows 来断言应该抛出的异常
  *
  */
 public class AccumulatorTest {
