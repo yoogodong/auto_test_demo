@@ -13,10 +13,10 @@ import static org.mockito.Mockito.when;
 /**
  * 演示 mock 对象在单元测试中的应用
  */
-public class OrderServiceTest {
+public class OrderServiceTest1 {
 
     @Test
-    public void should_get_10_if_two_order_with_5() {
+    public void testTotalPrice() {
         OrderService orderService = new OrderService();
         OrderDao orderDao = mock(OrderDao.class);
         orderService.setOrderDao(orderDao);
