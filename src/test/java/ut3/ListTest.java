@@ -1,4 +1,4 @@
-package ut.third.mockito;
+package ut3;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;

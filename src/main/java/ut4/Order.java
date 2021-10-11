@@ -1,4 +1,4 @@
-package ut.third.mockito;
+package ut4;
 
 public class Order {
     private final float price;

@@ -1,4 +1,4 @@
-package ut.third.mockito;
+package ut4;
 
 
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-
+/**
+ * 演示 mock 对象在单元测试中的应用
+ */
 public class OrderServiceTest {
 
     @Test

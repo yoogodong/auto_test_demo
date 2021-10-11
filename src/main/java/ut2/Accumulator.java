@@ -1,4 +1,4 @@
-package ut.second;
+package ut2;
 
 /**
  * 1，分析应该有几个测试用例
