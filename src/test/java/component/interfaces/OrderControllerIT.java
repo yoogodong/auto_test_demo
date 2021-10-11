@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @SpringBootTest(classes = {Application.class})
 @Transactional
-class OrderControllerTest {
+class OrderControllerIT {
 
     @Autowired
     OrderController controller;
