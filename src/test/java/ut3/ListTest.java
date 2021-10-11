@@ -10,6 +10,7 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 /**
+ * 演示 Mockito 的API， 以理解怎么制作测试替身
  * Mock 意思是模拟，可以让指定的类或接口的方法按要求响应
  * 本示例包括：
  * 1，mock

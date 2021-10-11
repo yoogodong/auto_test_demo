@@ -1,9 +1,13 @@
 # 内容：
-- 单元测试，三个实例：
+- 单元测试
   - UT 的基础结构
   - 测试用例的设计
-  - 使用 mock 
-- Rest API 测试，三种选择：
+  - Mockito API 
+  - 在测试中使用 mock 
+- 适合 Spring Boot 的组件测试
+  - 受管的测试对象
+  - mock 外部依赖的几种方法
+- Rest 接口测试，三种选择：
   - MockMvc, spring 提供, 测试脚本与被测同一进程
   - RestAssured， 社区流行， 测试脚本是独立的进程
   - RestAssuredMockMvc， RestAssured 结合spring 的 MockMvc，也就是可以做到同一进程
