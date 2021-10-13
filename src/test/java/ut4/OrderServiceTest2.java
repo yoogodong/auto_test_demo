@@ -29,7 +29,7 @@ public class OrderServiceTest2 {
     @Test
     public void testTotalPrice() {
         when(orderDao.getOrdersOfCustomer(anyLong()))
-                .thenReturn(Arrays.asList(new Order(5),new Order(5)));
+                .thenReturn(Arrays.asList(new Order(1L, 5),new Order(2L, 5)));
 
         float totalPrice = orderService.totalPayed(1);
 

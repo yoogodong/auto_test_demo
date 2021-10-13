@@ -17,16 +17,22 @@ public class OrderService {
         List<Order> orderList = orderDao.getOrdersOfCustomer(customerId);
         float totalPrice = 0;
         for (Order order : orderList) {
-            if (!isReturned(order))
+            if (!isSalesReturn(order))
                 totalPrice += order.getPrice();
         }
         return totalPrice;
     }
 
+
+    public void salesReturn(){
+
+    }
+
+
     /**
      * 检查订单是否被退货
      */
-    public boolean isReturned(Order order) {
+    public boolean isSalesReturn(Order order) {
         //这里省去了实际的逻辑
         return false;
     }
