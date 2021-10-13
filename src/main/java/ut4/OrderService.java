@@ -17,22 +17,27 @@ public class OrderService {
         List<Order> orderList = orderDao.getOrdersOfCustomer(customerId);
         float totalPrice = 0;
         for (Order order : orderList) {
-            if (!isSalesReturn(order))
+            if (!isSalesReturn(order.getOrderId()))
                 totalPrice += order.getPrice();
         }
         return totalPrice;
     }
 
 
-    public void salesReturn(){
-
+    public void salesReturn(Long orderId) {
+        if (orderDao.isExist(orderId))
+            orderDao.createSalesReturn(orderId);
+        else
+            throw new RuntimeException("order dont exist");
     }
 
 
     /**
      * 检查订单是否被退货
+     *
+     * @param orderId
      */
-    public boolean isSalesReturn(Order order) {
+    public boolean isSalesReturn(Long orderId) {
         //这里省去了实际的逻辑
         return false;
     }

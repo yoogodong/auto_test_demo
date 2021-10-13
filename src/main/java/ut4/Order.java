@@ -15,4 +15,8 @@ public class Order {
     public float getPrice() {
         return price;
     }
+
+    public Long getOrderId() {
+        return orderId;
+    }
 }

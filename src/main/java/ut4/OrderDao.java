@@ -7,4 +7,8 @@ public interface OrderDao {
 
     // 仅仅为了举例
     void clearCache();
+
+    void createSalesReturn(Long orderId);
+
+    boolean isExist(Long orderId);
 }
