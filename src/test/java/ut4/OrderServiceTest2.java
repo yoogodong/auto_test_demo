@@ -11,7 +11,6 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -34,6 +33,5 @@ public class OrderServiceTest2 {
         float totalPrice = orderService.totalPayed(1);
 
         assertEquals(10,totalPrice,0.001);//注意浮点类型没有精确值
-        verify(orderDao).clearCache();
     }
 }

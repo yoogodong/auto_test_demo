@@ -13,7 +13,6 @@ public class OrderService {
      * 计算一个客户所有花费
      */
     public float totalPayed(long customerId) {
-        orderDao.clearCache();
         List<Order> orderList = orderDao.getOrdersOfCustomer(customerId);
         float totalPrice = 0;
         for (Order order : orderList) {
