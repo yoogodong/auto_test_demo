@@ -36,9 +36,9 @@ public class OrderServiceTest1 {
      */
     @Test
     void testTotalPrice() {
-        float totalPrice = orderService.totalPayed(1);
+        float totalPayed = orderService.totalPayed(1);
 
-        assertEquals(10,totalPrice,0.001);//注意浮点类型没有精确值
+        assertEquals(10,totalPayed,0.001);//注意浮点类型没有精确值
     }
 
     /**
