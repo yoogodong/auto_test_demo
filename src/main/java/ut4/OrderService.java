@@ -22,7 +22,9 @@ public class OrderService {
         return totalPrice;
     }
 
-
+    /**
+     * 退货
+     */
     public void salesReturn(Long orderId) {
         if (orderDao.isExist(orderId))
             orderDao.createSalesReturn(orderId);
