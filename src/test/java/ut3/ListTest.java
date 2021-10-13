@@ -98,15 +98,12 @@ public class ListTest {
         List mockedList = mock(List.class);
 
         mockedList.add("a");
-        mockedList.size();
 
         verify(mockedList).add("a");
 //        verify(mockedList).add("b"); //这个无法通过验证；
 
 //        在验证时经常使用参数匹配器
         verify(mockedList).add(anyString());
-
-        verify(mockedList).size();
     }
 
 

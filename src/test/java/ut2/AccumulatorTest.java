@@ -1,10 +1,10 @@
 package ut2;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 /**
@@ -38,14 +38,12 @@ public class AccumulatorTest {
 
     @Test
     public void testAccumulate_1001() throws NumberOutOfBoundException {
-        Assertions.assertThrows(NumberOutOfBoundException.class,()->{
-            accumulator.accumulate(1001);
-        },"输入为1001的累加结果不对");
+        assertThrows(NumberOutOfBoundException.class,()->{accumulator.accumulate(1001);},"输入为1001的累加结果不对");
     }
 
     @Test
     public void testAccumulate_Minus1() throws NumberOutOfBoundException {
-        Assertions.assertThrows(NumberOutOfBoundException.class,()->{
+        assertThrows(NumberOutOfBoundException.class,()->{
             accumulator.accumulate(-1);
         },"输入为-1的累加结果不对");
     }
