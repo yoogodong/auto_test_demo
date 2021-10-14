@@ -18,10 +18,8 @@ public class OrderService {
     }
 
     public void create(Order order){
-        inventoryAdapter.deduct("234234",1);
+        inventoryAdapter.deduct("234234",1);// 这里省略了从订单中拿到 sku 的逻辑
         Order saved = repository.save(order);
         log.info("保存订单{}",saved);
     }
-
-
 }
