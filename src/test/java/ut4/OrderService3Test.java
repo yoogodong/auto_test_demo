@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
  * 演示使用 spy 的常用场景
  */
 @ExtendWith(MockitoExtension.class)
-public class OrderServiceTest3 {
+public class OrderService3Test {
 
     @Mock
     OrderDao orderDao;

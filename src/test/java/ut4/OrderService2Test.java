@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
  * 演示使用标注来简化 mock api
  */
 @ExtendWith(MockitoExtension.class)
-public class OrderServiceTest2 {
+public class OrderService2Test {
 
     @Mock
     OrderDao orderDao;

@@ -16,7 +16,7 @@ import static org.mockito.Mockito.when;
  * 演示 mock 对象在单元测试中的两种用途
  * 注意这里的三段式结构
  */
-public class OrderServiceTest1 {
+public class OrderService1Test {
 
 
     private OrderService orderService;
