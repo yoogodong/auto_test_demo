@@ -1,7 +1,7 @@
 package component.interfaces;
 
 import component.application.OrderService;
-import component.application.UnderStockException;
+import component.application.UnderstockedException;
 import component.domain.Order;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class OrderController {
 
 //    todo : 异常处理
     @PostMapping("/create")
-    public void create(@RequestBody OrderIn orderIn) throws UnderStockException {
+    public void create(@RequestBody OrderIn orderIn) throws UnderstockedException {
         orderService.create(orderIn.toOrder());
     }
 

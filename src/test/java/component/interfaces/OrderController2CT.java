@@ -2,7 +2,7 @@ package component.interfaces;
 
 import component.BaseCT;
 import component.application.InventoryAdapter;
-import component.application.UnderStockException;
+import component.application.UnderstockedException;
 import component.domain.Order;
 import component.domain.OrderRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -53,8 +53,7 @@ class OrderController2CT extends BaseCT {
     }
 
     @Test
-        // todo： 重命名understocked
-    void testCreateOrder() throws UnderStockException {
+    void testCreateOrder() throws UnderstockedException {
         final OrderIn in = OrderIn.builder()
                 .receiverName("Alex")
                 .shipmentAddress("广东省中山市")
@@ -70,18 +69,16 @@ class OrderController2CT extends BaseCT {
     }
 
     @Test
-    void testCreateOrder_Understocked() throws UnderStockException {
+    void testCreateOrder_Understocked() throws UnderstockedException {
         final OrderIn in = OrderIn.builder()
                 .receiverName("Alex")
                 .shipmentAddress("广东省中山市")
                 .receiverPhone("1391101000")
                 .build();
-        Mockito.doThrow(UnderStockException.class)
+        Mockito.doThrow(UnderstockedException.class)
                 .when(inventoryAdapter).deduct(Mockito.anyString(), Mockito.anyInt());
 
-        assertThrows(UnderStockException.class, () -> {
-            controller.create(in);
-        });
+        assertThrows(UnderstockedException.class, () -> controller.create(in));
 
         assertThat(repository.findAll()).hasSize(0);
     }

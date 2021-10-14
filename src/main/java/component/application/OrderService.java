@@ -17,7 +17,7 @@ public class OrderService {
         return repository.findById(orderId).orElseThrow(RuntimeException::new);
     }
 
-    public void create(Order order) throws UnderStockException {
+    public void create(Order order) throws UnderstockedException {
         inventoryAdapter.deduct("234234",1);// 这里省略了从订单中拿到 sku 的逻辑
         Order saved = repository.save(order);
         log.info("保存订单{}",saved);

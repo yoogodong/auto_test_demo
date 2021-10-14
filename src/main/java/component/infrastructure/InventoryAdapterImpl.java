@@ -1,7 +1,7 @@
 package component.infrastructure;
 
 import component.application.InventoryAdapter;
-import component.application.UnderStockException;
+import component.application.UnderstockedException;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class InventoryAdapterImpl implements InventoryAdapter {
     @Override
-    public void deduct(String sku, int quantity)throws UnderStockException {
+    public void deduct(String sku, int quantity)throws UnderstockedException {
 //        RestTemplate restTemplate = new RestTemplate();
 //        restTemplate.put("url",sku,quantity);
         System.out.println("通过网络，调用库存服务接口");
