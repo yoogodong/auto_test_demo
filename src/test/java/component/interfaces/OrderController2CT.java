@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * 演示外部依赖的 mock
+ * 标注 MockBean 表达了两个意思，这是一个 bean ， 这是个mock 对象
  */
 class OrderController2CT extends BaseCT {
 
@@ -29,9 +30,7 @@ class OrderController2CT extends BaseCT {
     @MockBean
     InventoryAdapter inventoryAdapter;
 
-    /**
-     *
-     */
+
     @BeforeEach
     void setUp() {
         repository.deleteAllInBatch();

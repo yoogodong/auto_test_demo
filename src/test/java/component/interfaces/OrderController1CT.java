@@ -13,8 +13,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * 演示组件测试的基本结构
- * @SpringBootTest Spring 管理测试实例
- * @Transactional 可以保证每个测试后都会回滚事务
+ * 标注 SpringBootTest 使得 Spring 能管理测试实例
+ * 标注 Transactional 保证每个测试后都会回滚事务
+ * 测试要独立， 所以各自负责DB数据的初始化或清理
  */
 @SpringBootTest(classes = {Application.class})
 @Transactional
