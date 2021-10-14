@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @SpringBootTest(classes = {Application.class})
 @Transactional
-class OrderControllerIT {
+class OrderControllerCT{
 
     @Autowired
     OrderController controller;
@@ -30,7 +30,7 @@ class OrderControllerIT {
     }
 
     @Test
-    void searchOrder() {
+    void testGetOrder() {
         Order order = Order.builder()
                 .shipmentAddress("address")
                 .receiverName("receiver")
