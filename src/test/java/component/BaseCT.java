@@ -5,5 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
 @Transactional
+//@Profile()
+//@TestConfiguration
 public class BaseCT {
 }
