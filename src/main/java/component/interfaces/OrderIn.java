@@ -1,8 +1,10 @@
 package component.interfaces;
 
 import component.domain.Order;
+import lombok.Builder;
 import lombok.Data;
 
+@Builder
 @Data
 public class OrderIn {
     private String shipmentAddress;
