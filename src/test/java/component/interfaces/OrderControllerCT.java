@@ -20,24 +20,25 @@ class OrderControllerCT{
 
     @Autowired
     OrderController controller;
-
     @Autowired
     OrderRepository repository;
+
+    private Order saved;
 
     @BeforeEach
     void setUp() {
         repository.deleteAllInBatch();
-    }
 
-    @Test
-    void testGetOrder() {
-        Order order = Order.builder()
+        Order order1 = Order.builder()
                 .shipmentAddress("address")
                 .receiverName("receiver")
                 .receiverPhone("13312345678")
                 .build();
-        Order saved = repository.save(order);
+        saved = repository.save(order1);
+    }
 
+    @Test
+    void testGetOrder() {
         OrderOut orderOut = controller.getOrder(saved.getId());
 
         assertThat(orderOut).usingRecursiveComparison().ignoringFields("createdTime")

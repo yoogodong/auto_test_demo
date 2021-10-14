@@ -14,7 +14,7 @@ public class OrderService {
     private InventoryAdapter inventoryAdapter;
 
     public Order getOrder(Long orderId){
-        return repository.findById(orderId).orElseThrow(()->new RuntimeException());
+        return repository.findById(orderId).orElseThrow(RuntimeException::new);
     }
 
     public void create(Order order){
