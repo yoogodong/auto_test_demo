@@ -6,31 +6,39 @@ import component.application.InventoryAdapter;
 import component.application.UnderstockedException;
 import component.domain.Order;
 import component.domain.OrderRepository;
-import io.restassured.http.ContentType;
-import io.restassured.module.mockmvc.RestAssuredMockMvc;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
+import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.startsWith;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * 演示通过 rest 接口验证组件
+ * 使用 MockMvc 测试 rest 接口
  */
+@AutoConfigureMockMvc
 class OrderController3CT extends BaseCT {
 
     @Autowired
     OrderController controller;
     @Autowired
     OrderRepository repository;
+
+    @Autowired
+    MockMvc mockMvc;
 
     @MockBean
     InventoryAdapter inventoryAdapter;
@@ -39,11 +47,15 @@ class OrderController3CT extends BaseCT {
     @BeforeEach
     void setUp() {
         repository.deleteAllInBatch();
-        RestAssuredMockMvc.standaloneSetup(controller);
     }
 
+    /**
+     * API 结构：mockMvc.perform(x).andExpect(y)
+     * x 用于构造请求, 使用 MockMvcRequestBuilder
+     * y 用于验证应答, 使用 MockMvcResultMatcher
+     */
     @Test
-    void testGetOrder() {
+    void testGetOrder() throws Exception {
         Order order1 = Order.builder()
                 .shipmentAddress("address")
                 .receiverName("receiver")
@@ -51,21 +63,18 @@ class OrderController3CT extends BaseCT {
                 .build();
         Order saved = repository.save(order1);
 
-        given()
-                .accept(ContentType.JSON)
-                .when()
-                .get("/orders/" + saved.getId())
-                .then()
-                .contentType(ContentType.JSON)
-                .status(HttpStatus.OK)
-                .body("shipmentAddress", equalTo(order1.getShipmentAddress()))
-                .body("receiverName", equalTo(order1.getReceiverName()))
-                .body("receiverPhone", equalTo(order1.getReceiverPhone()))
-                .body("createdTime", startsWith("2021-"));
+        mockMvc.perform(get("/orders/" + saved.getId()).accept(APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(APPLICATION_JSON))
+                .andExpect(jsonPath("shipmentAddress").value(order1.getShipmentAddress()))
+                .andExpect(jsonPath("receiverName").value(order1.getReceiverName()))
+                .andExpect(jsonPath("receiverPhone").value(order1.getReceiverPhone()))
+                .andExpect(jsonPath("createdTime").value(Matchers.startsWith("2021-")))
+                .andDo(print());
     }
 
     @Test
-    void testCreateOrder() throws UnderstockedException {
+    void testCreateOrder() throws Exception {
         final OrderIn in = OrderIn.builder()
                 .receiverName("Alex")
                 .shipmentAddress("广东省中山市")
@@ -73,11 +82,12 @@ class OrderController3CT extends BaseCT {
                 .build();
         Mockito.doNothing().when(inventoryAdapter).deduct(Mockito.anyString(), Mockito.anyInt());
 
-        given().contentType(ContentType.JSON)
-                .body(JSONObject.toJSONString(in))
-                .when().post("/orders/create")
-                .then().status(HttpStatus.OK);
-
+        mockMvc.perform(
+                        post("/orders/create")
+                                .contentType(APPLICATION_JSON)
+                                .content(JSONObject.toJSONString(in))
+                )
+                .andExpect(status().isOk());
 
         final List<Order> orders = repository.findAll();
         assertThat(orders).hasSize(1).element(0).usingRecursiveComparison()
@@ -85,7 +95,7 @@ class OrderController3CT extends BaseCT {
     }
 
     @Test
-    void testCreateOrder_Understocked() throws UnderstockedException {
+    void testCreateOrder_Understocked() throws Exception {
         final OrderIn in = OrderIn.builder()
                 .receiverName("Alex")
                 .shipmentAddress("广东省中山市")
@@ -94,10 +104,12 @@ class OrderController3CT extends BaseCT {
         Mockito.doThrow(UnderstockedException.class)
                 .when(inventoryAdapter).deduct(Mockito.anyString(), Mockito.anyInt());
 
-        given().contentType(ContentType.JSON)
-                .body(JSONObject.toJSONString(in))
-                .when().post("/orders/create")
-                .then().status(HttpStatus.NOT_ACCEPTABLE);
+        mockMvc.perform(
+                        post("/orders/create")
+                                .contentType(APPLICATION_JSON)
+                                .content(JSONObject.toJSONString(in))
+                )
+                .andExpect(status().isNotAcceptable());
 
         assertThat(repository.findAll()).hasSize(0);
     }
