@@ -31,4 +31,30 @@ public class OrderAT extends BaseAT {
                 .then()
                 .statusCode(200);
     }
+
+    class OrderIn {
+        private String shipmentAddress;
+        private String receiverName;
+        private String receiverPhone;
+
+        public OrderIn(String shipmentAddress, String receiverName, String receiverPhone) {
+            this.shipmentAddress = shipmentAddress;
+            this.receiverName = receiverName;
+            this.receiverPhone = receiverPhone;
+        }
+
+        public String getShipmentAddress() {
+            return shipmentAddress;
+        }
+
+        public String getReceiverName() {
+            return receiverName;
+        }
+
+
+        public String getReceiverPhone() {
+            return receiverPhone;
+        }
+    }
+
 }
