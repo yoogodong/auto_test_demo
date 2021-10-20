@@ -1,8 +1,8 @@
-package component.interfaces;
+package ct.interfaces;
 
-import component.application.OrderService;
-import component.application.UnderstockedException;
-import component.domain.Order;
+import ct.application.OrderService;
+import ct.application.UnderstockedException;
+import ct.domain.Order;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

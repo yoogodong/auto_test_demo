@@ -1,6 +1,6 @@
-package component.interfaces;
+package ct.interfaces;
 
-import component.domain.Order;
+import ct.domain.Order;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

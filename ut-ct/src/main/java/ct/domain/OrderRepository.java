@@ -1,4 +1,4 @@
-package component.domain;
+package ct.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,7 +1,7 @@
-package component.application;
+package ct.application;
 
-import component.domain.Order;
-import component.domain.OrderRepository;
+import ct.domain.Order;
+import ct.domain.OrderRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

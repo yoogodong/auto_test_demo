@@ -1,4 +1,4 @@
-package component.domain;
+package ct.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

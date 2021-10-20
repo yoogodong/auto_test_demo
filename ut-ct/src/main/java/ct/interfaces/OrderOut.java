@@ -1,7 +1,7 @@
-package component.interfaces;
+package ct.interfaces;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import component.domain.Order;
+import ct.domain.Order;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 

@@ -1,8 +1,8 @@
-package component.interfaces;
+package ct.interfaces;
 
-import component.Application;
-import component.domain.Order;
-import component.domain.OrderRepository;
+import ct.Application;
+import ct.domain.Order;
+import ct.domain.OrderRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

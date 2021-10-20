@@ -1,11 +1,11 @@
-package component.interfaces;
+package ct.interfaces;
 
 import com.alibaba.fastjson.JSONObject;
-import component.BaseCT;
-import component.application.InventoryAdapter;
-import component.application.UnderstockedException;
-import component.domain.Order;
-import component.domain.OrderRepository;
+import ct.BaseCT;
+import ct.application.InventoryAdapter;
+import ct.application.UnderstockedException;
+import ct.domain.Order;
+import ct.domain.OrderRepository;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

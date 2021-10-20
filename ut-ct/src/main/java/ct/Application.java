@@ -1,7 +1,7 @@
-package component;
+package ct;
 
-import component.domain.Order;
-import component.domain.OrderRepository;
+import ct.domain.Order;
+import ct.domain.OrderRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

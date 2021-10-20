@@ -1,7 +1,7 @@
-package component.infrastructure;
+package ct.infrastructure;
 
-import component.application.InventoryAdapter;
-import component.application.UnderstockedException;
+import ct.application.InventoryAdapter;
+import ct.application.UnderstockedException;
 import org.springframework.stereotype.Component;
 
 /**
