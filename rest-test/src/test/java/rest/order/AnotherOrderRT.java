@@ -35,8 +35,8 @@ public class AnotherOrderRT extends BaseRT {
         given()
                 .contentType(JSON)
                 .when()
-                .get("/orders/1")
-                .then()
+                .get("/another/orders/1")
+                .then().log().all()
                 .contentType(JSON)
                 .statusCode(200)
                 .body("totalPrice", equalTo(3250f))
@@ -54,7 +54,7 @@ public class AnotherOrderRT extends BaseRT {
         given()
                 .accept(JSON)
                 .when()
-                .get("/orders/5")
+                .get("/another/orders/5")
                 .then()
                 .statusCode(404)
                 .contentType(JSON)
@@ -71,7 +71,7 @@ public class AnotherOrderRT extends BaseRT {
     public void testFind() {
         given()
                 .contentType(JSON)
-                .when().get("/orders/1")
+                .when().get("/another/orders/1")
                 .then()
                 .body("orderItemList.find{it.name=='苹果'}.quantity", equalTo(2));
 
@@ -88,7 +88,7 @@ public class AnotherOrderRT extends BaseRT {
     @Test
     public void show_extract() {
         String body = when()
-                .get("/orders/5")
+                .get("/another/orders/5")
                 .then()
                 .statusCode(404)
                 .extract().body().asString();
