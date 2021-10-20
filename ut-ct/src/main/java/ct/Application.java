@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @AllArgsConstructor
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"ct","rt"})
 @EnableJpaAuditing
 public class Application implements ApplicationRunner {
     public static void main(String[] args) {
