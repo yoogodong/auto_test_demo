@@ -2,7 +2,7 @@ package rest;
 
 import io.restassured.RestAssured;
 
-public class BaseAT {
+public class BaseRT {
     static {
         RestAssured.baseURI="http://localhost";
         RestAssured.port=8080;

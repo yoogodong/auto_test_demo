@@ -4,11 +4,11 @@ import com.alibaba.fastjson.JSONObject;
 import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
-import rest.BaseAT;
+import rest.BaseRT;
 
 import static io.restassured.RestAssured.given;
 
-public class OrderAT extends BaseAT {
+public class OrderRT extends BaseRT {
 
     @Test
     void testGetOrder() {

@@ -1,8 +1,7 @@
 package rest.order;
 
-import io.restassured.RestAssured;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import rest.BaseRT;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
@@ -21,12 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * 劣势：
  * 1. 不能直接 mock 被测系统对外部的依赖,需要借助于其他技术
  */
-public class OrderController_RestAssuredIT {
-
-    @BeforeEach
-    public void setUp() throws Exception {
-        RestAssured.baseURI = "http://localhost:8080";
-    }
+public class AnotherOrderRT extends BaseRT {
 
     /**
      * 演示 restAssured 核心API ：
