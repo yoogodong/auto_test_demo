@@ -31,7 +31,7 @@ public class OrderRT extends BaseRT {
                 .statusCode(200);
     }
 
-    class OrderIn {
+    static class OrderIn {
         private String shipmentAddress;
         private String receiverName;
         private String receiverPhone;
