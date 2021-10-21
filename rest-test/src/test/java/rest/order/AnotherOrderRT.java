@@ -34,13 +34,13 @@ public class AnotherOrderRT extends BaseRT {
     public void get_order_when_id_1() {
         given()
                 .contentType(JSON)
-                .when()
+        .when()
                 .get("/another/orders/1")
-                .then().log().all()
+        .then().log().all()
                 .contentType(JSON)
                 .statusCode(200)
                 .body("totalPrice", equalTo(3250f))
-                .body("orderItemList.quantity", hasItems(2, 5))
+                .body("orderItemList.quantity", hasItems(2, 5))//assertJ ,  Hamcrest
                 .body("orderItemList.quantity", hasSize(2))
                 .body("orderItemList[0].quantity", equalTo(2));
     }
@@ -55,7 +55,7 @@ public class AnotherOrderRT extends BaseRT {
                 .accept(JSON)
                 .when()
                 .get("/another/orders/5")
-                .then()
+                .then().log().all()
                 .statusCode(404)
                 .contentType(JSON)
                 .body("[0]", equalTo("对象不存在"))
@@ -72,7 +72,7 @@ public class AnotherOrderRT extends BaseRT {
         given()
                 .contentType(JSON)
                 .when().get("/another/orders/1")
-                .then()
+                .then().log().body()
                 .body("orderItemList.find{it.name=='苹果'}.quantity", equalTo(2));
 
     }
