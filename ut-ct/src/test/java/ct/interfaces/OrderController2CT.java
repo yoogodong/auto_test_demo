@@ -53,11 +53,8 @@ class OrderController2CT extends BaseCT {
 
     @Test
     void testCreateOrder() throws UnderstockedException {
-        final OrderIn in = OrderIn.builder()
-                .receiverName("Alex")
-                .shipmentAddress("广东省中山市")
-                .receiverPhone("1391101000")
-                .build();
+        final OrderIn in = new OrderIn("广东中山","中利斯","1399999999");
+
         Mockito.doNothing().when(inventoryAdapter).deduct(Mockito.anyString(), Mockito.anyInt());
 
         controller.create(in);
@@ -69,11 +66,7 @@ class OrderController2CT extends BaseCT {
 
     @Test
     void testCreateOrder_Understocked() throws UnderstockedException {
-        final OrderIn in = OrderIn.builder()
-                .receiverName("Alex")
-                .shipmentAddress("广东省中山市")
-                .receiverPhone("1391101000")
-                .build();
+        final OrderIn in = new OrderIn("广东中山","中利斯","1399999999");
         Mockito.doThrow(UnderstockedException.class)
                 .when(inventoryAdapter).deduct(Mockito.anyString(), Mockito.anyInt());
 
