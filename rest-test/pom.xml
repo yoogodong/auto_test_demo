@@ -23,33 +23,15 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.75</version>
-        </dependency>
-        <dependency>
             <groupId>io.rest-assured</groupId>
-            <artifactId>json-path</artifactId>
+            <artifactId>rest-assured</artifactId>
             <version>4.3.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>xml-path</artifactId>
-            <version>4.3.3</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>spring-mock-mvc</artifactId>
-            <version>4.3.3</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>rest-assured</groupId>
-                    <artifactId>io.rest-assured</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.12.2</version>
         </dependency>
     </dependencies>
 

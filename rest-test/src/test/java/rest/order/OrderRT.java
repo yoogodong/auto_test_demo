@@ -1,6 +1,5 @@
 package rest.order;
 
-import com.alibaba.fastjson.JSONObject;
 import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
@@ -26,7 +25,7 @@ public class OrderRT extends BaseRT {
     void testCreateOrder() {
         final OrderIn in = new OrderIn("中国", "张思纯", "89898");
         given().contentType(ContentType.JSON)
-                .body(JSONObject.toJSONString(in))
+                .body(in)
                 .post("/orders/create")
                 .then()
                 .statusCode(200);
