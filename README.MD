@@ -12,9 +12,17 @@
   - RestAssured， 社区流行， 测试脚本是独立的进程
   - RestAssuredMockMvc， RestAssured 结合spring 的 MockMvc，也就是可以做到同一进程
 
+# 代码结构
+- 分成了两个模块，两个模块并无依赖，只是为了便于组织
+  - rest-test : 使用 rest assured 做 rest 测试
+  - ut-ct : 包括单元测试可组件测试两个部分
+    - 组件测试的被测对象是 spring-boot 的微服务，这里有两个 controller 为入口
+    - 单元测试都是 ut* 的包
+  
+  
 #运行
-因为单元测试和接口测试分别采用 Test 和 IT 作为后缀，通过指定后缀来运行某种测试：
-` mvn test -Dtest=*Test,*IT`  运行单元测试和接口测试
+因为单元、组件、rest 测试分别采用 Test、CT、RT 作为后缀，通过指定后缀来运行某种测试：
+` mvn test -Dtest=*Test,*CT`  运行单元测试和组件测试
 
 
 # 测试自动化的FAQ：
@@ -50,6 +58,6 @@
 - rest api 
   - Rest Assured 
 
-### 比较
-- 可控性：
-- 有效性，逐步降低
+### 三种测试方式的比较
+- 可控性
+- 可信性
